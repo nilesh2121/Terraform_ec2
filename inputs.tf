@@ -56,15 +56,10 @@ variable "subnet_cidrs_private" {
 
 # added the keypath location
 
-# variable "keypath" {
-#     type = string
-#     default = "~/.ssh/id_rsa.pub"
-  
-# }
-
 variable "keypath" {
     type = string
-    default = "home/ubuntu/.ssh/id_rsa.pub"
+    default = "~/.ssh/id_rsa.pub"
   
 }
+
 
