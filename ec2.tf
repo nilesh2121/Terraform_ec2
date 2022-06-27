@@ -26,9 +26,15 @@ resource "aws_instance" "dbserver" {
 
 # added the keypaire location
 
+# resource "aws_key_pair" "mylaptop" {
+#     key_name = "mylaptop"
+#     public_key = file("/home/devops/key/.ssh/id_rsa.pub")
+# }
+
+
 resource "aws_key_pair" "mylaptop" {
     key_name = "mylaptop"
-    public_key = file("/home/devops/key/.ssh/id_rsa.pub")
+    public_key = file("/home/devops/.ssh/id_rsa.pub")
 }
 
 # Method two for
