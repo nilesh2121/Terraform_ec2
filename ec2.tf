@@ -28,7 +28,7 @@ resource "aws_instance" "dbserver" {
 
 resource "aws_key_pair" "mylaptop1" {
     key_name = "mylaptop1"
-    public_key = file("~/.ssh/id_rsa.pub")
+    public_key = file("./.ssh/id_rsa.pub")
 }
 
 # Method two for
