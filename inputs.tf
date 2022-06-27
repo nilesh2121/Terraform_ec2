@@ -58,7 +58,7 @@ variable "subnet_cidrs_private" {
 
 variable "keypath" {
     type = string
-    default = "home/ubuntu/.ssh/id_rsa.pub"
+    default = "~/.ssh/id_rsa.pub"
   
 }
 
