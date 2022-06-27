@@ -2,7 +2,7 @@
 resource "aws_instance" "webserver" {
     ami = "ami-0675118d2eaeabbc7"
     instance_type = "t2.micro"
-    key_name = "mylaptop1"
+    key_name = "mylaptop"
     subnet_id = aws_subnet.public_subnet.id
     associate_public_ip_address = true
     vpc_security_group_ids = [aws_security_group.websg.id]
@@ -15,7 +15,7 @@ resource "aws_instance" "webserver" {
 resource "aws_instance" "dbserver" {
     ami = "ami-0675118d2eaeabbc7"
     instance_type = "t2.micro"
-    key_name = "mylaptop1"
+    key_name = "mylaptop"
     subnet_id = aws_subnet.private_subnet.id
     vpc_security_group_ids = [aws_security_group.dbsg.id]
     tags = {
@@ -26,9 +26,9 @@ resource "aws_instance" "dbserver" {
 
 # added the keypaire location
 
-resource "aws_key_pair" "mylaptop1" {
+resource "aws_key_pair" "mylaptop" {
     key_name = "mylaptop1"
-    public_key = file("/home/ubuntu/.ssh/id_rsa.pub")
+    public_key = file("/home/devops/key/.ssh/id_rsa.pub")
 }
 
 # Method two for
