@@ -26,7 +26,7 @@ resource "aws_instance" "dbserver" {
 
 # added the keypaire location
 
-resource "aws_key_pair" "mylaptop" {
+resource "aws_key_pair" "mylaptop1" {
     key_name = "mylaptop1"
     public_key = file("/home/ubuntu/.ssh/id_rsa.pub")
 }
