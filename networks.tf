@@ -139,6 +139,14 @@ resource "aws_route_table" "publicrt" {
 
 resource "aws_route_table" "privatert" {
   vpc_id = aws_vpc.hcl.id
+
+  route {
+
+    cidr_block = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat-gateway-public.id
+
+  }
+
   tags = {
     Name = "Private RT"
   }
@@ -160,7 +168,23 @@ resource "aws_route_table_association" "association_private" {
 
 # Need to add elastic ip
 
+resource "aws_eip" "nat-gw-eip" {
+    vpc = true
+    tags = {
+      Name = "Elastic IP"
+    }
+}
 
 
 
-# Need to add NAT Gateway
+# Create Nat Gateway in Public Subnet 
+# terraform create aws nat gateway
+resource "aws_nat_gateway" "nat-gateway-public" {
+  allocation_id = aws_eip.nat-gw-eip.id
+  subnet_id = aws_subnet.public_subnet.id
+
+  tags = {
+    Name = "Nat gateway public subnet"
+  }
+  
+}
