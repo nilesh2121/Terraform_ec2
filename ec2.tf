@@ -10,7 +10,7 @@ resource "aws_instance" "webserver" {
       Name = "web-server"
     }
 
-    user_data = "${file("/script/user.sh")}"
+    user_data = file("script/user.sh")
 
 
 #     provisioner "file" {
@@ -39,7 +39,7 @@ resource "aws_instance" "dbserver" {
       Name = "db-server"
     }
 
-    user_data = "${file("/script/user.sh")}"
+    user_data = file("script/user.sh")
   
 }
 
