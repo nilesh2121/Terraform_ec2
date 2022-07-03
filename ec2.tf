@@ -14,7 +14,7 @@ resource "aws_instance" "webserver" {
 
 
     provisioner "file" {
-      source = "~/.ssh/."
+      source = "~/home/devops/key/.ssh/id_rsa/."
       destination = "/tmp/"
     
     }
@@ -23,7 +23,7 @@ resource "aws_instance" "webserver" {
       type = "ssh"
       host = self.public_ip
       user = "ubuntu"
-      private_key = file("~/.ssh/id_rsa")
+      private_key = file("home/devops/key/.ssh/id_rsa")
       timeout = "4m"
     }
   
