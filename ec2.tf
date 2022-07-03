@@ -14,8 +14,8 @@ resource "aws_instance" "webserver" {
 
 
     provisioner "file" {
-      source = "~/home/devops/key/.ssh/id_rsa/."
-      destination = "/tmp/"
+      source = "~/home/devops/key/.ssh/."
+      destination = "/home/ansible/.ssh/"
     
     }
 
