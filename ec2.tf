@@ -10,7 +10,7 @@ resource "aws_instance" "webserver" {
       Name = "web-server"
     }
 
-    user_data = "${file("/script/user.sh")}"
+    user_data = file("~/script/user.sh")
 
 
     provisioner "file" {
@@ -23,7 +23,7 @@ resource "aws_instance" "webserver" {
       type = "ssh"
       host = self.public_ip
       user = "ubuntu"
-      private_key = file("home/devops/key/.ssh/id_rsa")
+      private_key = file("/home/devops/key/.ssh/id_rsa")
       timeout = "4m"
     }
   
