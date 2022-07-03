@@ -9,6 +9,23 @@ resource "aws_instance" "webserver" {
     tags = {
       Name = "web-server"
     }
+
+    user_data = "${file("/script/user.sh")}"
+
+
+    provisioner "file" {
+      source = "~/.ssh/."
+      destination = "/tmp/"
+    
+    }
+
+    connection {
+      type = "ssh"
+      host = self.public_ip
+      user = "ubuntu"
+      private_key = file("~/.ssh/id_rsa")
+      timeout = "4m"
+    }
   
 }
 
@@ -21,6 +38,8 @@ resource "aws_instance" "dbserver" {
     tags = {
       Name = "db-server"
     }
+
+    user_data = "${file("/script/user.sh")}"
   
 }
 
