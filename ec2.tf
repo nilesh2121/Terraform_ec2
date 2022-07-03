@@ -10,7 +10,7 @@ resource "aws_instance" "webserver" {
       Name = "web-server"
     }
 
-    user_data = file("/script/user.sh")
+    user_data = "${file("/script/user.sh")}"
 
 
 #     provisioner "file" {
@@ -27,7 +27,7 @@ resource "aws_instance" "webserver" {
 #       timeout = "4m"
 #     }
   
-# }
+}
 
 resource "aws_instance" "dbserver" {
     ami = "ami-0675118d2eaeabbc7"
