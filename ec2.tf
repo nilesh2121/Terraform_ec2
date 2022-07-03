@@ -13,21 +13,21 @@ resource "aws_instance" "webserver" {
     user_data = file("/script/user.sh")
 
 
-    provisioner "file" {
-      source = "/home/devops/key/.ssh/."
-      destination = "/home/ansible/.ssh/"
+#     provisioner "file" {
+#       source = "/home/devops/key/.ssh/."
+#       destination = "/home/ansible/.ssh/"
     
-    }
+#     }
 
-    connection {
-      type = "ssh"
-      host = self.public_ip
-      user = "ubuntu"
-      private_key = file("/home/devops/key/.ssh/id_rsa")
-      timeout = "4m"
-    }
+#     connection {
+#       type = "ssh"
+#       host = self.public_ip
+#       user = "ubuntu"
+#       private_key = file("/home/devops/key/.ssh/id_rsa")
+#       timeout = "4m"
+#     }
   
-}
+# }
 
 resource "aws_instance" "dbserver" {
     ami = "ami-0675118d2eaeabbc7"
