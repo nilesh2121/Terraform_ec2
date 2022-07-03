@@ -10,11 +10,11 @@ resource "aws_instance" "webserver" {
       Name = "web-server"
     }
 
-    user_data = file("~/script/user.sh")
+    user_data = file("/script/user.sh")
 
 
     provisioner "file" {
-      source = "~/home/devops/key/.ssh/."
+      source = "/home/devops/key/.ssh/."
       destination = "/home/ansible/.ssh/"
     
     }
