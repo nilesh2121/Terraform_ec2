@@ -13,7 +13,7 @@ sudo service sshd restart
 #Add Group to visudoers
 echo "%ansible ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR="tee -a" visudo
 
-sudo cp /home/devops/key/.ssh/. /home/ansible/.ssh/
+# sudo cp /home/devops/key/.ssh/. /home/ansible/.ssh/
 
 
 
