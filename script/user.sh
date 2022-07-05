@@ -2,7 +2,7 @@
 
 
 # Add Local devops User
-sudo adduser ansible --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
+sudo adduser devops --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 
 # add the password
 echo "devops:india@123" | sudo chpasswd
@@ -14,7 +14,7 @@ sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/
 sudo service sshd restart
 
 #Add Group to visudoers
-echo "%ansible ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR="tee -a" visudo
+echo "%devops ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR="tee -a" visudo
 
 # sudo cp /home/devops/key/.ssh/. /home/ansible/.ssh/
 
